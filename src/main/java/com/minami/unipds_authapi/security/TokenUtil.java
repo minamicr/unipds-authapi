@@ -49,7 +49,7 @@ public class TokenUtil {
                 String issuer = claims.getIssuer();
                 Date exp = claims.getExpiration();
 
-                if (issuer.equals(EMISSOR) && subject.length() > 0 && exp.after(new Date(System.currentTimeMillis()))) {
+                if (issuer.equals(EMISSOR) && !subject.isEmpty() && exp.after(new Date(System.currentTimeMillis()))) {
                     return new UsernamePasswordAuthenticationToken("valido", null, Collections.emptyList());
                 }
             }
