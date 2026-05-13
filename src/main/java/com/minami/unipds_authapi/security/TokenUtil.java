@@ -11,13 +11,12 @@ import org.springframework.security.core.Authentication;
 
 import javax.crypto.SecretKey;
 import java.security.Key;
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Date;
 
 public class TokenUtil {
     public static final String EMISSOR = "CrisMinami";
-    public static final Long EXPIRATION = 15 * 1000L;
+    public static final Long EXPIRATION = 150 * 1000L;
     public static final String SECRET_KEY = "0123456789012345678901234567890123456789";
 
     public static MyToken encode(User user) {

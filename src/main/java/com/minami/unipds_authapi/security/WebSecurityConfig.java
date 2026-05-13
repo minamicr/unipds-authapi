@@ -6,10 +6,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.util.AntPathMatcher;
-
-import static org.springframework.security.authorization.SingleResultAuthorizationManager.permitAll;
 
 @Configuration
 @EnableWebSecurity
@@ -21,9 +17,9 @@ public class WebSecurityConfig {
             csrf.disable();
         })
         .authorizeHttpRequests((auth) -> {
-            auth.requestMatchers(new AntPathRequestMatcher("/open", "GET")).permitAll()
-                    .requestMatchers(new AntPathRequestMatcher("/users", "POST")).permitAll()
-                    .requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll()
+            auth.requestMatchers("/open", "GET").permitAll()
+                    .requestMatchers("/users", "POST").permitAll()
+                    .requestMatchers("/login", "POST").permitAll()
                     .anyRequest().authenticated();
 
         })
